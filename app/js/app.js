@@ -1,59 +1,29 @@
-// Object of art fundamentals, subgroups, and specific topics
-const fundamentals = {
-    "Gesture Drawing": [
-        { subgroup: "Dynamic Poses", topics: [] },
-        { subgroup: "Action Lines", topics: [] }
-    ],
-    "Perspective": [
-        { subgroup: "One-Point Perspective", topics: [] },
-        { subgroup: "Two-Point Perspective", topics: [] },
-        { subgroup: "Three-Point Perspective", topics: [] }
-    ],
-    "Anatomy": [
-        { subgroup: "Face", topics: ["Azaro Head", "Features: Mouth", "Features: Eyes"] },
-        { subgroup: "Body", topics: ["Hands", "Torso"] }
-    ],
-    "Color Theory": [
-        { subgroup: "Primary Colors", topics: [] },
-        { subgroup: "Color Harmonies", topics: [] }
-    ],
-    "Composition": [
-        { subgroup: "Rule of Thirds", topics: [] },
-        { subgroup: "Leading Lines", topics: [] }
-    ]
-};
+// Sample data
+const fundamentals = [
+    { fundamental: "Anatomy", subgroup: "Face", topic: "Azaro Head" },
+    { fundamental: "Color Theory", subgroup: "Primary Colors", topic: "Mixing Red and Yellow" },
+    { fundamental: "Perspective", subgroup: "One-Point", topic: "Drawing a Road" },
+    // Add more objects as needed
+];
 
-// Get references to DOM elements
-const shuffleButton = document.getElementById('shuffle-btn');
-const promptBox = document.getElementById('prompt-box');
-
-// Function to generate a random fundamental and subgroup
-function shuffleFundamental() {
-    // Get a random main category (fundamental)
-    const fundamentalsKeys = Object.keys(fundamentals);
-    const randomFundamentalIndex = Math.floor(Math.random() * fundamentalsKeys.length);
-    const selectedFundamental = fundamentalsKeys[randomFundamentalIndex];
-
-    // Get a random subgroup from the selected fundamental
-    const subgroups = fundamentals[selectedFundamental];
-    const randomSubgroupIndex = Math.floor(Math.random() * subgroups.length);
-    const selectedSubgroup = subgroups[randomSubgroupIndex];
-
-    // Check if there are topics in the subgroup, and pick one if available
-    let topic = "";
-    if (selectedSubgroup.topics.length > 0) {
-        const randomTopicIndex = Math.floor(Math.random() * selectedSubgroup.topics.length);
-        topic = selectedSubgroup.topics[randomTopicIndex];
-    }
-
-    // Display the result
-    let resultText = `Today's focus: <strong>${selectedFundamental}</strong> -> <strong>${selectedSubgroup.subgroup}</strong>`;
-    if (topic) {
-        resultText += ` -> <strong>${topic}</strong>`;
-    }
-
-    promptBox.innerHTML = `<p>${resultText}</p>`;
+// Function to shuffle and get a random fundamental
+function getRandomFundamental() {
+    const randomIndex = Math.floor(Math.random() * fundamentals.length);
+    return fundamentals[randomIndex];
 }
 
-// Attach event listener to the button
-shuffleButton.addEventListener('click', shuffleFundamental);
+// Function to update the prompt box
+function updatePromptBox() {
+    const { fundamental, subgroup, topic } = getRandomFundamental();
+    
+    // Update the prompt box content
+    document.querySelector('#prompt-box .title').innerHTML = `You will study <strong>${fundamental}</strong>`;
+    document.querySelector('#prompt-box .subtitle').innerHTML = `Focusing on <strong>${subgroup}</strong>`;
+    document.querySelector('#prompt-box .content').innerHTML = `Exercise: <strong>${topic}</strong>`;
+}
+
+// Event listener for the shuffle button
+document.getElementById('shuffle-btn').addEventListener('click', updatePromptBox);
+
+// Generate the first set on page load
+window.onload = updatePromptBox;

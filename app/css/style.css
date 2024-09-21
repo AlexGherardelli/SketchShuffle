@@ -39,12 +39,17 @@ body {
 
 /* Prompt box styles */
 .prompt-box {
-    margin-bottom: 20px;
+    margin: 50px;
     font-size: 1.2em;
     padding: 20px;
     border: 2px solid #ccc;
     border-radius: 5px;
     background-color: #fafafa;
+}
+
+
+header {
+    margin: 50px;
 }
 
 /* Button styling */

@@ -11,22 +11,26 @@
 </head>
 
 <body>
-    <section class="section">
-        <div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center"
-            style="min-height: 100vh;">
-            <header class="has-text-centered">
+    <div class="section is-fullheight">
+        <div class="container is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center"
+            style="height: 100vh;">
+
+
+            <main class="is-flex-grow-1 is-flex is-flex-direction-column is-justify-content-center">
+                <header class="has-text-centered">
                 <h1 class="title">SketchShuffle</h1>
                 <p class="subtitle">Sharpen your skills by reviewing essential art fundamentals daily!</p>
-            </header>
-
-            <main class="mt-5">
-                <div id="prompt-box" class="box has-text-centered mb-4">
-                    <p>Click the button to shuffle an art fundamental to study today!</p>
+                </header>
+                
+                <div id="prompt-box" class="has-text-centered mb-4">
+                    <p class="title is-4">You will study <strong>{Fundamental}</strong></p>
+                    <p class="subtitle is-6">Focusing on <strong>{SubGroup}</strong></p>
+                    <p class="content">Exercise: <strong>{Topic}</strong></p>
                 </div>
                 <button class="button is-primary is-fullwidth" id="shuffle-btn">Shuffle Fundamental</button>
             </main>
         </div>
-    </section>
+    </div>
 
     <footer class="footer has-background-light">
         <div class="content has-text-centered">
