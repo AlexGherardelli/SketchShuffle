@@ -11,5 +11,5 @@
 
 ## Demo
 
-You can try a live demo of the app [here](#) (link to GitHub Pages or another hosting platform, if applicable).
+You can try a live demo of the app [here](https://alexgherardelli.github.io/SketchShuffle/) 
 
