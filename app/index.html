@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SketchShuffle - Daily Art Fundamentals</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>SketchShuffle</h1>
-            <p>Sharpen your skills by reviewing essential art fundamentals daily!</p>
-        </header>
+    <section class="section">
+        <div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center"
+            style="min-height: 100vh;">
+            <header class="has-text-centered">
+                <h1 class="title">SketchShuffle</h1>
+                <p class="subtitle">Sharpen your skills by reviewing essential art fundamentals daily!</p>
+            </header>
 
-        <main>
-            <div id="prompt-box" class="prompt-box">
-                <p>Click the button to shuffle an art fundamental to study today!</p>
-            </div>
-            <button id="shuffle-btn">Shuffle Fundamental</button>
-        </main>
+            <main class="mt-5">
+                <div id="prompt-box" class="box has-text-centered mb-4">
+                    <p>Click the button to shuffle an art fundamental to study today!</p>
+                </div>
+                <button class="button is-primary is-fullwidth" id="shuffle-btn">Shuffle Fundamental</button>
+            </main>
+        </div>
+    </section>
 
-        <footer>
+    <footer class="footer has-background-light">
+        <div class="content has-text-centered">
             <p>Made with ❤️ for artists by an artist.</p>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <script src="js/app.js"></script>
 </body>
+
 </html>
